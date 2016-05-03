@@ -1,5 +1,6 @@
 package com.tamashenning.foodcraft.proxies;
 
+import com.tamashenning.foodcraft.FoodCraft;
 import com.tamashenning.foodcraft.common.utils.CraftingFoodModifiers;
 import com.tamashenning.foodcraft.registrations.CraftingRegistrations;
 import com.tamashenning.foodcraft.registrations.ItemRegistrations;
@@ -16,7 +17,7 @@ public class CommonProxy {
         Configuration config = new Configuration(e.getSuggestedConfigurationFile());
         config.load();
 
-        CraftingFoodModifiers.initConfig(config);
+        FoodCraft.config = config;
 
         config.save();
     }
@@ -24,7 +25,7 @@ public class CommonProxy {
     public void init(FMLInitializationEvent e) {
         OreDictionaryRegistrations.init();
         CraftingRegistrations.init();
-        CraftingFoodModifiers.configFile.save();
+        FoodCraft.config.save();
     }
 
     public void postInit(FMLPostInitializationEvent e) {

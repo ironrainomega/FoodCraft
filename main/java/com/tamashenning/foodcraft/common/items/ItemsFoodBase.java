@@ -6,6 +6,7 @@ import com.tamashenning.foodcraft.FoodCraft;
 import com.tamashenning.foodcraft.common.utils.PlayerFoodStats;
 import com.tamashenning.foodcraft.common.utils.models.PlayerStatsModel;
 
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class ItemsFoodBase extends ItemFood {
 
@@ -50,6 +53,7 @@ public abstract class ItemsFoodBase extends ItemFood {
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
         super.addInformation(itemStack, player, list, par4);
 
@@ -64,6 +68,13 @@ public abstract class ItemsFoodBase extends ItemFood {
         list.add("Sour: " + nbt.getFloat("Sour"));
         list.add("Salty: " + nbt.getFloat("Salty"));
         list.add("Savory: " + nbt.getFloat("Savory"));
+
+        if (GuiScreen.isShiftKeyDown()) {
+            list.add("");
+            list.add("Hunger: " + this.getHealAmount(itemStack));
+            list.add("Saturation: " + this.getSaturationModifier(itemStack));
+        }
+
     }
 
     @Override
@@ -73,7 +84,7 @@ public abstract class ItemsFoodBase extends ItemFood {
             actualHealAmount = itemStack.getTagCompound().getInteger("Heal");
         }
 
-        FoodCraft.logger.info("Actual heal: " + actualHealAmount);
+        // FoodCraft.logger.info("Actual heal: " + actualHealAmount);
 
         return actualHealAmount;
     }
@@ -85,7 +96,7 @@ public abstract class ItemsFoodBase extends ItemFood {
             actualSaturation = itemStack.getTagCompound().getFloat("Saturation");
         }
 
-        FoodCraft.logger.info("Actual saturation: " + actualSaturation);
+        // FoodCraft.logger.info("Actual saturation: " + actualSaturation);
 
         return actualSaturation;
     }

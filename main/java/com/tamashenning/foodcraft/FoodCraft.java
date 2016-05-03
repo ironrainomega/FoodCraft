@@ -1,6 +1,7 @@
 package com.tamashenning.foodcraft;
 
 import com.tamashenning.foodcraft.proxies.CommonProxy;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -19,6 +20,8 @@ public class FoodCraft {
     public static FoodCraft instance = new FoodCraft();
 
     public static Logger logger;
+
+    public static Configuration config;
 
     @SidedProxy(clientSide = "com.tamashenning.foodcraft.proxies.ClientProxy", serverSide = "com.tamashenning.foodcraft.proxies.ServerProxy")
     public static CommonProxy proxy;

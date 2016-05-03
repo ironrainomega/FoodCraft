@@ -1,5 +1,6 @@
 package com.tamashenning.foodcraft.common.utils;
 
+import com.tamashenning.foodcraft.FoodCraft;
 import com.tamashenning.foodcraft.common.utils.models.ModifierModel;
 import com.tamashenning.foodcraft.registrations.ItemRegistrations;
 
@@ -13,7 +14,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public final class CraftingFoodModifiers {
 
-    public static Configuration configFile;
+    private static String ModifierSectionName = "Modifiers";
 
     // TODO: Add to configs...
 
@@ -35,11 +36,6 @@ public final class CraftingFoodModifiers {
     public static ModifierModel saltModifier = CraftingFoodModifiers.createModel(ItemRegistrations.saltItem, 0, 0, 0, 2f,
             -2f, 0, 0, Potion.getPotionById(0), 0f, 0);
 
-
-    public static void initConfig(Configuration config) {
-        CraftingFoodModifiers.configFile = config;
-    }
-
     public static ModifierModel createModel(Object item, float bitter, float sweet, float sour, float salty,
                                             float savory, int heal, float saturation, Potion potionID, float potionProbability, int potionLength) {
 
@@ -51,21 +47,29 @@ public final class CraftingFoodModifiers {
         } else if (item instanceof Block) {
             itemName = ((Block) item).getUnlocalizedName();
         } else if (item instanceof String) {
-            itemName = "oreDict" + (String) item;
+            itemName = "oreDict." + (String) item;
         }
 
+
         ModifierModel model = new ModifierModel();
-        model.BitterModifier = bitter;
-        model.SweetModifier = sweet;
-        model.SourModifier = sour;
-        model.SaltyModifier = salty;
-        model.SavoryModifier = savory;
-        model.HealModifier = heal;
-        model.SaturationModifier = saturation;
-        model.PotionId = potionID;
-        model.PotionPorbability = potionProbability;
-        model.PotionLength = potionLength;
+        String categoryName = CraftingFoodModifiers.ModifierSectionName +"."+ itemName;
+
+        FoodCraft.config.setCategoryComment(categoryName, "Modifiers for "+itemName);
+        model.BitterModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteBitter", categoryName, bitter, 0, 5, "");
+        model.SweetModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSweet", categoryName, sweet, 0, 5, "");
+        model.SourModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSour", categoryName, sour, 0, 5, "");
+        model.SaltyModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSalty", categoryName, salty, 0, 5, "");
+        model.SavoryModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSavory", categoryName, savory, 0, 5, "");
+
+        model.HealModifier = FoodCraft.config.get(categoryName, "modifier." + itemName + ".statsHeal", heal).getInt();
+        model.SaturationModifier = FoodCraft.config.getFloat("modifier." + itemName + ".statsSaturation", categoryName, saturation, 0, 20, "");
+
+        model.PotionId = potionID.getPotionById(FoodCraft.config.get(categoryName, "modifier." + itemName + ".potionID", Potion.getIdFromPotion(potionID)).getInt());
+        model.PotionPorbability = FoodCraft.config.getFloat("modifier." + itemName + ".potionProbability", categoryName, potionProbability, 0, 1, "");
+        model.PotionLength = FoodCraft.config.get(categoryName, "modifier." + itemName + ".potionLength", potionLength).getInt();
+
         model.item = item;
         return model;
+
     }
 }
