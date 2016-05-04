@@ -47,6 +47,9 @@ public class FoodRecipe extends ShapelessOreRecipe {
     @Override
     public ItemStack getCraftingResult(InventoryCrafting inv) {
         ItemStack newItem = this.recipeOutput.copy();
+        NBTTagCompound nbt;
+        float prevbitter = 0, prevsweet = 0, prevsour = 0, prevsalty = 0, prevsavory = 0, prevsaturation = 0;
+        int prevheal = 0;
 
         for (int i = 0; i < inv.getHeight(); ++i) {
             for (int j = 0; j < inv.getWidth(); ++j) {
@@ -57,24 +60,26 @@ public class FoodRecipe extends ShapelessOreRecipe {
                     if (itemstack.getItem() instanceof ItemsFoodBase) {
                         if (itemstack.hasTagCompound()) {
 
-                            NBTTagCompound nbt = itemstack.getTagCompound();
-                            float prevbitter = minManGetValueFloat(nbt.getFloat("Bitter"), bitter);
-                            float prevsweet = minManGetValueFloat(nbt.getFloat("Sweet"), sweet);
-                            float prevsour = minManGetValueFloat(nbt.getFloat("Sour"), sour);
-                            float prevsalty = minManGetValueFloat(nbt.getFloat("Salty"), salty);
-                            float prevsavory = minManGetValueFloat(nbt.getFloat("Savory"), savory);
-                            int prevheal = minManGetValueInt(nbt.getInteger("Heal"), heal);
-                            float prevsaturation = minManGetValueFloat(nbt.getFloat("Saturation"), saturation, 20f);
+                            nbt = itemstack.getTagCompound();
+                            prevbitter += minManGetValueFloat(nbt.getFloat("Bitter"), bitter);
+                            prevsweet += minManGetValueFloat(nbt.getFloat("Sweet"), sweet);
+                            prevsour += minManGetValueFloat(nbt.getFloat("Sour"), sour);
+                            prevsalty += minManGetValueFloat(nbt.getFloat("Salty"), salty);
+                            prevsavory += minManGetValueFloat(nbt.getFloat("Savory"), savory);
+                            prevheal += minManGetValueInt(nbt.getInteger("Heal"), heal);
+                            prevsaturation += minManGetValueFloat(nbt.getFloat("Saturation"), saturation, 20f);
 
-                            ItemsFoodBase item = (ItemsFoodBase) itemstack.getItem();
-                            item.setValuesToNbt(newItem, prevbitter, prevsweet, prevsour, prevsalty, prevsavory,
-                                    prevheal, prevsaturation);
-
-                            item.setPotionEffect(new PotionEffect(potionId, potionLength), potionProbability);
+                            ((ItemsFoodBase) itemstack.getItem()).setPotionEffect(new PotionEffect(potionId, potionLength), potionProbability);
                         }
                     }
                 }
             }
+        }
+
+        if (newItem.getItem() instanceof ItemsFoodBase) {
+            ItemsFoodBase item = (ItemsFoodBase) newItem.getItem();
+            item.setValuesToNbt(newItem, prevbitter, prevsweet, prevsour, prevsalty, prevsavory,
+                    prevheal, prevsaturation);
         }
 
         return newItem;

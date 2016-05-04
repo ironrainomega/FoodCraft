@@ -3,10 +3,14 @@ package com.tamashenning.foodcraft.common.items;
 import java.util.List;
 
 import com.tamashenning.foodcraft.FoodCraft;
+import com.tamashenning.foodcraft.common.items.Edible.ItemSoup;
+import com.tamashenning.foodcraft.common.utils.IItemRenderer;
 import com.tamashenning.foodcraft.common.utils.PlayerFoodStats;
 import com.tamashenning.foodcraft.common.utils.models.PlayerStatsModel;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -17,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class ItemsFoodBase extends ItemFood {
+public abstract class ItemsFoodBase extends ItemFood implements IItemRenderer {
 
     public float FoodBitterModifier = 0f;
     public float FoodSweetModifier = 0f;
@@ -127,7 +131,7 @@ public abstract class ItemsFoodBase extends ItemFood {
                 + savory * playerStats.SavoryModifier);
 
         FoodCraft.logger
-                .info(SoupItem.unlocalizedName + " Heal: " + healAmount + " Saturation: " + saturation);
+                .info(ItemSoup.unlocalizedName + " Heal: " + healAmount + " Saturation: " + saturation);
 
         this.setValuesToNbt(itemStack, bitter, sweet, sour, salty, savory, healAmount, saturation);
     }
@@ -151,5 +155,13 @@ public abstract class ItemsFoodBase extends ItemFood {
     public ItemsFoodBase setValuesToNbt(ItemStack itemStack) {
         return this.setValuesToNbt(itemStack, FoodBitterModifier, FoodSweetModifier, FoodSourModifier,
                 FoodSaltyModifier, FoodSavoryModifier, FallbackHealAmount, FoodSaturationAmount);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerItemRenderer() {
+
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(this, 0,
+                new ModelResourceLocation(FoodCraft.MODID + ":" + this.getUnlocalizedName().substring(5), "inventory"));
     }
 }

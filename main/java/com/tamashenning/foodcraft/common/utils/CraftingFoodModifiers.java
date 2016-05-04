@@ -1,6 +1,7 @@
 package com.tamashenning.foodcraft.common.utils;
 
 import com.tamashenning.foodcraft.FoodCraft;
+import com.tamashenning.foodcraft.common.items.FoodCraftItems;
 import com.tamashenning.foodcraft.common.utils.models.ModifierModel;
 import com.tamashenning.foodcraft.registrations.ItemRegistrations;
 
@@ -12,6 +13,8 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.lang.reflect.Modifier;
+
 public final class CraftingFoodModifiers {
 
     private static String ModifierSectionName = "Modifiers";
@@ -19,7 +22,7 @@ public final class CraftingFoodModifiers {
     // TODO: Add to configs...
 
     public static ModifierModel cookedMeatModifier = CraftingFoodModifiers.createModel("cookedMeat", 0f, 0.2f, 0.2f, 0.5f, 1.5f,
-            8, 4f, Potion.getPotionById(0), 0f, 0);
+            8, 8f, Potion.getPotionById(0), 0f, 0);
 
     public static ModifierModel sugarModifier = CraftingFoodModifiers.createModel(Items.sugar, 0, 2, 0, -0.1f, 0, 1, 0,
             Potion.getPotionById(0), 0f, 0);
@@ -33,8 +36,10 @@ public final class CraftingFoodModifiers {
     public static ModifierModel spiderEyeModifier = CraftingFoodModifiers.createModel(Items.spider_eye, -2, -2, -2, -2,
             -2, -2, -2, Potion.getPotionById(19), 1f, 100);
 
-    public static ModifierModel saltModifier = CraftingFoodModifiers.createModel(ItemRegistrations.saltItem, 0, 0, 0, 2f,
+    public static ModifierModel saltModifier = CraftingFoodModifiers.createModel(FoodCraftItems.SALT_ITEM.item, 0, 0, 0, 2f,
             -2f, 0, 0, Potion.getPotionById(0), 0f, 0);
+
+    public static ModifierModel baconModifier = CraftingFoodModifiers.createModel(Items.cooked_porkchop, 0, 0, 0, 0.5f, 2.5f, 8, 12.8f, Potion.getPotionById(0), 0f, 0);
 
     public static ModifierModel createModel(Object item, float bitter, float sweet, float sour, float salty,
                                             float savory, int heal, float saturation, Potion potionID, float potionProbability, int potionLength) {
@@ -52,9 +57,9 @@ public final class CraftingFoodModifiers {
 
 
         ModifierModel model = new ModifierModel();
-        String categoryName = CraftingFoodModifiers.ModifierSectionName +"."+ itemName;
+        String categoryName = CraftingFoodModifiers.ModifierSectionName + "." + itemName;
 
-        FoodCraft.config.setCategoryComment(categoryName, "Modifiers for "+itemName);
+        FoodCraft.config.setCategoryComment(categoryName, "Modifiers for " + itemName);
         model.BitterModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteBitter", categoryName, bitter, 0, 5, "");
         model.SweetModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSweet", categoryName, sweet, 0, 5, "");
         model.SourModifier = FoodCraft.config.getFloat("modifier." + itemName + ".tasteSour", categoryName, sour, 0, 5, "");

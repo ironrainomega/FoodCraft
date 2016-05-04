@@ -1,12 +1,13 @@
-package com.tamashenning.foodcraft.common.items;
+package com.tamashenning.foodcraft.common.items.Edible;
 
+import com.tamashenning.foodcraft.common.items.ItemsFoodBase;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class SoupItem extends ItemsFoodBase {
+public class ItemSoup extends ItemsFoodBase {
 
 	public static String unlocalizedName = "soup";
 
-	public SoupItem() {
+	public ItemSoup() {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
 		this.setCreativeTab(CreativeTabs.tabFood);
