@@ -1,5 +1,6 @@
 package com.tamashenning.foodcraft.common.items;
 
+import com.tamashenning.foodcraft.common.items.Edible.ItemDinner;
 import com.tamashenning.foodcraft.common.items.Edible.ItemMashedPotato;
 import com.tamashenning.foodcraft.common.items.Edible.ItemSoup;
 import com.tamashenning.foodcraft.common.items.NonEdible.ItemCheese;
@@ -18,7 +19,8 @@ public enum FoodCraftItems {
     SOUP_ITEM(new ItemSoup()),
     SALT_ITEM(new ItemSalt()),
     CHEESE_ITEM(new ItemCheese()),
-    MASHED_POTATO_ITEM(new ItemMashedPotato());
+    MASHED_POTATO_ITEM(new ItemMashedPotato()),
+    DINNER_ITEM(new ItemDinner());
 
     public final Item item;
 

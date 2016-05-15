@@ -31,7 +31,7 @@ public final class CraftingRegistrations {
                 FoodCraftItems.SOUP_ITEM.item);
 
 
-        GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.MASHED_POTATO_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item));
+        GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.DINNER_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item, Items.cake));
     }
 
     private static void registerModifiers(Item baseItem, ModifierModel... modifiers) {
