@@ -20,7 +20,7 @@ public class FoodCraftWorldGen implements IWorldGenerator {
     private WorldGenerator generator;
 
     public FoodCraftWorldGen() {
-        generator = new WorldGenMinable(FoodCraftBlocks.SALTORE.block.getDefaultState(), 5);
+        generator = new WorldGenMinable(FoodCraftBlocks.SALT_ORE.block.getDefaultState(), 5);
     }
 
     @Override

@@ -10,8 +10,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public enum FoodCraftBlocks {
 
-    SALTORE(new BlockSaltOre()),
-    SALTBLOCK(new BlockSaltBlock());
+    SALT_ORE(new BlockSaltOre()),
+    SALT_BLOCK(new BlockSaltBlock()),
+    CHEESE_BLOCK(new BlockCheese());
 
     public final Block block;
 
