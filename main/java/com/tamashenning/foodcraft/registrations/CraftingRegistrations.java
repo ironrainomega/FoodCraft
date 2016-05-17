@@ -1,5 +1,6 @@
 package com.tamashenning.foodcraft.registrations;
 
+import com.tamashenning.foodcraft.common.blocks.FoodCraftBlocks;
 import com.tamashenning.foodcraft.common.items.FoodCraftItems;
 import com.tamashenning.foodcraft.common.utils.CraftingFoodModifiers;
 import com.tamashenning.foodcraft.common.utils.models.ModifierModel;
@@ -24,11 +25,10 @@ public final class CraftingRegistrations {
 
         registerModifiers(FoodCraftItems.MASHED_POTATO_ITEM.item, CraftingFoodModifiers.baconModifier, CraftingFoodModifiers.rottenFleshModifier, CraftingFoodModifiers.spiderEyeModifier);
 
-        // TODO: Figure out how to give bucket back... Maybe...
-        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(FoodCraftItems.SOUP_ITEM.item, 16), 0.5f);
+        GameRegistry.addSmelting(FoodCraftBlocks.SALTBLOCK.block, new ItemStack(FoodCraftItems.SALT_ITEM.item, 8), 0.5f);
 
         GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.CHEESE_ITEM.item), Items.milk_bucket,
-                FoodCraftItems.SOUP_ITEM.item);
+                FoodCraftItems.SALT_ITEM.item);
 
 
         GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.DINNER_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item, Items.cake));

@@ -2,6 +2,7 @@ package com.tamashenning.foodcraft.registrations;
 
 import com.tamashenning.foodcraft.FoodCraft;
 
+import com.tamashenning.foodcraft.common.blocks.FoodCraftBlocks;
 import com.tamashenning.foodcraft.common.items.FoodCraftItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -12,6 +13,7 @@ public final class ItemRenderRegistrations {
 
     public static void registerItemRenderer() {
         FoodCraftItems.registerRenders();
+        FoodCraftBlocks.registerRenders();
     }
 
 }

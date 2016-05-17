@@ -1,6 +1,7 @@
 package com.tamashenning.foodcraft.registrations;
 
 import com.tamashenning.foodcraft.FoodCraft;
+import com.tamashenning.foodcraft.common.blocks.FoodCraftBlocks;
 import com.tamashenning.foodcraft.common.items.*;
 
 import net.minecraft.item.Item;
@@ -11,6 +12,7 @@ public final class ItemRegistrations {
     @SuppressWarnings("deprecation")
     public static final void init() {
         FoodCraftItems.registerItems();
+        FoodCraftBlocks.registerItems();
     }
 
 }

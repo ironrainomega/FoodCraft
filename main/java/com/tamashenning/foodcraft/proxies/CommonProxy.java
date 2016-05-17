@@ -5,10 +5,12 @@ import com.tamashenning.foodcraft.common.utils.CraftingFoodModifiers;
 import com.tamashenning.foodcraft.registrations.CraftingRegistrations;
 import com.tamashenning.foodcraft.registrations.ItemRegistrations;
 import com.tamashenning.foodcraft.registrations.OreDictionaryRegistrations;
+import com.tamashenning.foodcraft.registrations.WorldGenRegistrations;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
 
@@ -25,6 +27,7 @@ public class CommonProxy {
     public void init(FMLInitializationEvent e) {
         OreDictionaryRegistrations.init();
         CraftingRegistrations.init();
+        WorldGenRegistrations.init();
         FoodCraft.config.save();
     }
 
