@@ -12,12 +12,13 @@ import java.util.Random;
 /**
  * Created by ironr on 5/15/2016.
  */
-public class BlockSalt extends BlockBase {
-    public static String unlocalizedName = "salt_block";
+public class BlockSaltOre extends BlockBase {
+    public static String unlocalizedName = "salt_ore";
 
-    public BlockSalt() {
-        super(BlockSalt.unlocalizedName);
+    public BlockSaltOre() {
+        super(BlockSaltOre.unlocalizedName);
     }
+
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return FoodCraftItems.SALT_ITEM.item;
     }

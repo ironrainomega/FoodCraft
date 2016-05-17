@@ -25,13 +25,17 @@ public final class CraftingRegistrations {
 
         registerModifiers(FoodCraftItems.MASHED_POTATO_ITEM.item, CraftingFoodModifiers.baconModifier, CraftingFoodModifiers.rottenFleshModifier, CraftingFoodModifiers.spiderEyeModifier);
 
-        GameRegistry.addSmelting(FoodCraftBlocks.SALTBLOCK.block, new ItemStack(FoodCraftItems.SALT_ITEM.item, 8), 0.5f);
+        GameRegistry.addSmelting(FoodCraftBlocks.SALTORE.block, new ItemStack(FoodCraftItems.SALT_ITEM.item, 8), 0.5f);
 
         GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.CHEESE_ITEM.item), Items.milk_bucket,
                 FoodCraftItems.SALT_ITEM.item);
 
 
         GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.DINNER_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item, Items.cake));
+
+        // Add compressed salt...
+        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.SALT_ITEM.item, 9), FoodCraftBlocks.SALTBLOCK.block);
+        GameRegistry.addRecipe(new ItemStack(FoodCraftBlocks.SALTBLOCK.block), new Object[] {"###", "###", "###" , '#', FoodCraftItems.SALT_ITEM.item});
     }
 
     private static void registerModifiers(Item baseItem, ModifierModel... modifiers) {
