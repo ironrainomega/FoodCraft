@@ -1,6 +1,7 @@
 package com.tamashenning.foodcraft.common.utils;
 
 import com.tamashenning.foodcraft.FoodCraft;
+import com.tamashenning.foodcraft.common.blocks.FoodCraftBlocks;
 import com.tamashenning.foodcraft.common.items.FoodCraftItems;
 import com.tamashenning.foodcraft.common.utils.models.ModifierModel;
 import com.tamashenning.foodcraft.registrations.ItemRegistrations;
@@ -40,6 +41,13 @@ public final class CraftingFoodModifiers {
             -2f, 0, 0, Potion.getPotionById(0), 0f, 0);
 
     public static ModifierModel baconModifier = CraftingFoodModifiers.createModel(Items.cooked_porkchop, 0, 0, 0, 0.5f, 2.5f, 8, 12.8f, Potion.getPotionById(0), 0f, 0);
+
+    public static ModifierModel cheeseModifier = CraftingFoodModifiers.createModel(FoodCraftItems.CHEESE_ITEM.item, 0.1f, -0.1f, 0f, 0.8f, 1.0f,
+            4, 4f, Potion.getPotionById(0), 0f, 0);
+
+    public static ModifierModel appleModifier = CraftingFoodModifiers.createModel(Items.apple, 0.1f, 1f, -0.2f, 0f, 1.0f,
+            4, 4f, Potion.getPotionById(0), 0f, 0);
+
 
     public static ModifierModel createModel(Object item, float bitter, float sweet, float sour, float salty,
                                             float savory, int heal, float saturation, Potion potionID, float potionProbability, int potionLength) {

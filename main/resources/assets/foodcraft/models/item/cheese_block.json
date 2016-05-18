@@ -1,6 +1,23 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_directional",
   "textures": {
-    "all": "foodcraft:blocks/cheese/cheese_block"
-  }
+    "particle": "foodcraft:blocks/cheese/cheese_block_down",
+    "down": "foodcraft:blocks/cheese/cheese_block_down",
+    "up": "foodcraft:blocks/cheese/cheese_block_up",
+    "side": "foodcraft:blocks/cheese/cheese_block_side"
+  },
+
+  "elements": [
+    {   "from": [ 1, 0, 1 ],
+      "to": [ 15, 8, 15 ],
+      "faces": {
+        "down":  { "texture": "#down", "cullface": "down" },
+        "up":    { "texture": "#up" },
+        "north": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west":  { "texture": "#side" },
+        "east":  { "texture": "#side" }
+      }
+    }
+  ]
 }
