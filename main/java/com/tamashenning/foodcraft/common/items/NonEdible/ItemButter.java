@@ -9,6 +9,6 @@ public class ItemButter extends ItemsBase {
     public ItemButter() {
         super();
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabFood);
+        this.setCreativeTab(CreativeTabs.MATERIALS);
     }
 }

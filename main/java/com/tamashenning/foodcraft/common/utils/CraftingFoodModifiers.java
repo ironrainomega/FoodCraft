@@ -25,27 +25,27 @@ public final class CraftingFoodModifiers {
     public static ModifierModel cookedMeatModifier = CraftingFoodModifiers.createModel("cookedMeat", 0f, 0.2f, 0.2f, 0.5f, 1.5f,
             8, 8f, Potion.getPotionById(0), 0f, 0);
 
-    public static ModifierModel sugarModifier = CraftingFoodModifiers.createModel(Items.sugar, 0, 2, 0, -0.1f, 0, 1, 0,
+    public static ModifierModel sugarModifier = CraftingFoodModifiers.createModel(Items.SUGAR, 0, 2, 0, -0.1f, 0, 1, 0,
             Potion.getPotionById(0), 0f, 0);
 
-    public static ModifierModel rottenFleshModifier = CraftingFoodModifiers.createModel(Items.rotten_flesh, -1, -1, -1,
+    public static ModifierModel rottenFleshModifier = CraftingFoodModifiers.createModel(Items.ROTTEN_FLESH, -1, -1, -1,
             -1, -1, -1, -1, Potion.getPotionById(17), 0.8f, 300);
 
-    public static ModifierModel poisonousPotatoModifier = CraftingFoodModifiers.createModel(Items.poisonous_potato, -1,
+    public static ModifierModel poisonousPotatoModifier = CraftingFoodModifiers.createModel(Items.POISONOUS_POTATO, -1,
             -1, -1, -1, -1, -1, -1, Potion.getPotionById(19), 0.6f, 100);
 
-    public static ModifierModel spiderEyeModifier = CraftingFoodModifiers.createModel(Items.spider_eye, -2, -2, -2, -2,
+    public static ModifierModel spiderEyeModifier = CraftingFoodModifiers.createModel(Items.SPIDER_EYE, -2, -2, -2, -2,
             -2, -2, -2, Potion.getPotionById(19), 1f, 100);
 
     public static ModifierModel saltModifier = CraftingFoodModifiers.createModel(FoodCraftItems.SALT_ITEM.item, 0, 0, 0, 2f,
             -2f, 0, 0, Potion.getPotionById(0), 0f, 0);
 
-    public static ModifierModel baconModifier = CraftingFoodModifiers.createModel(Items.cooked_porkchop, 0, 0, 0, 0.5f, 2.5f, 8, 12.8f, Potion.getPotionById(0), 0f, 0);
+    public static ModifierModel baconModifier = CraftingFoodModifiers.createModel(Items.COOKED_PORKCHOP, 0, 0, 0, 0.5f, 2.5f, 8, 12.8f, Potion.getPotionById(0), 0f, 0);
 
     public static ModifierModel cheeseModifier = CraftingFoodModifiers.createModel(FoodCraftItems.CHEESE_ITEM.item, 0.1f, -0.1f, 0f, 0.8f, 1.0f,
             4, 4f, Potion.getPotionById(0), 0f, 0);
 
-    public static ModifierModel appleModifier = CraftingFoodModifiers.createModel(Items.apple, 0.1f, 1f, -0.2f, 0f, 1.0f,
+    public static ModifierModel appleModifier = CraftingFoodModifiers.createModel(Items.APPLE, 0.1f, 1f, -0.2f, 0f, 1.0f,
             4, 4f, Potion.getPotionById(0), 0f, 0);
 
 

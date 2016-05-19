@@ -11,8 +11,6 @@ public class ItemMashedPotato extends ItemsFoodBase {
     public ItemMashedPotato() {
         super();
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabFood);
-        this.setAlwaysEdible();
 
         this.FoodBitterModifier = 1f;
         this.FoodSweetModifier = 1f;

@@ -22,13 +22,13 @@ public class BlockBase extends Block implements IBlockRenderer {
     public BlockBase(String unlocalizedName, Material material, float hardness, float resistance) {
         super(material);
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
         this.setHardness(hardness);
         this.setResistance(resistance);
     }
 
     public BlockBase(String unlocalizedName, float hardness, float resistance) {
-        this(unlocalizedName, Material.rock, hardness, resistance);
+        this(unlocalizedName, Material.ROCK, hardness, resistance);
     }
 
     public BlockBase(String unlocalizedName) {

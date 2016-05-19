@@ -9,6 +9,6 @@ public class ItemCheese extends ItemsBase {
 	public ItemCheese() {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabFood);
+		this.setCreativeTab(CreativeTabs.MATERIALS);
 	}
 }

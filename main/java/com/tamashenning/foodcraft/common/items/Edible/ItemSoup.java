@@ -10,8 +10,6 @@ public class ItemSoup extends ItemsFoodBase {
 	public ItemSoup() {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabFood);
-		this.setAlwaysEdible();
 
 		this.FoodBitterModifier = 1f;
 		this.FoodSweetModifier = 1f;

@@ -10,6 +10,6 @@ public class ItemSalt extends ItemsBase {
 	public ItemSalt() {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabFood);
+		this.setCreativeTab(CreativeTabs.MATERIALS);
 	}
 }

@@ -17,7 +17,7 @@ public final class CraftingRegistrations {
 
         // Soup recipe
         GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.SOUP_ITEM.item, 3),
-                Items.bone, Items.bowl, Items.water_bucket);
+                Items.BONE, Items.BOWL, Items.WATER_BUCKET);
 
         registerModifiers(FoodCraftItems.SOUP_ITEM.item, CraftingFoodModifiers.cookedMeatModifier, CraftingFoodModifiers.poisonousPotatoModifier,
                 CraftingFoodModifiers.rottenFleshModifier, CraftingFoodModifiers.spiderEyeModifier,
@@ -25,11 +25,11 @@ public final class CraftingRegistrations {
 
 
         // Mashed potato recipe
-        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.MASHED_POTATO_ITEM.item, 8), Items.baked_potato, Items.bowl, Items.stick, FoodCraftItems.BUTTER_ITEM.item, Items.milk_bucket);
+        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.MASHED_POTATO_ITEM.item, 8), Items.BAKED_POTATO, Items.BOWL, Items.STICK, FoodCraftItems.BUTTER_ITEM.item, Items.MILK_BUCKET);
         registerModifiers(FoodCraftItems.MASHED_POTATO_ITEM.item, CraftingFoodModifiers.baconModifier, CraftingFoodModifiers.rottenFleshModifier, CraftingFoodModifiers.spiderEyeModifier, CraftingFoodModifiers.cheeseModifier, CraftingFoodModifiers.appleModifier);
 
         // Cheese recipe
-        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.CHEESE_ITEM.item), Items.milk_bucket,
+        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.CHEESE_ITEM.item), Items.MILK_BUCKET,
                 FoodCraftItems.SALT_ITEM.item);
 
         // Compressed cheese...
@@ -37,11 +37,11 @@ public final class CraftingRegistrations {
         GameRegistry.addRecipe(new ItemStack(FoodCraftBlocks.CHEESE_BLOCK.block), new Object[] {"###", "###", "###" , '#', FoodCraftItems.CHEESE_ITEM.item});
 
         // Butter recipe
-        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.BUTTER_ITEM.item), Items.milk_bucket,
-                FoodCraftItems.SALT_ITEM.item, Items.stick);
+        GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.BUTTER_ITEM.item), Items.MILK_BUCKET,
+                FoodCraftItems.SALT_ITEM.item, Items.STICK);
 
         // Dinner recipe
-        GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.DINNER_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item, Items.cake));
+        GameRegistry.addRecipe(new FoodRecipe(new ItemStack(FoodCraftItems.DINNER_ITEM.item), FoodCraftItems.SOUP_ITEM.item, FoodCraftItems.MASHED_POTATO_ITEM.item, Items.CAKE));
 
         // Add compressed salt...
         GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.SALT_ITEM.item, 9), FoodCraftBlocks.SALT_BLOCK.block);
@@ -51,7 +51,7 @@ public final class CraftingRegistrations {
         GameRegistry.addSmelting(FoodCraftBlocks.SALT_ORE.block, new ItemStack(FoodCraftItems.SALT_ITEM.item, 8), 0.5f);
 
         // Toast recipe
-        GameRegistry.addSmelting(Items.bread, new ItemStack(FoodCraftItems.TOAST_ITEM.item), 0.5f);
+        GameRegistry.addSmelting(Items.BREAD, new ItemStack(FoodCraftItems.TOAST_ITEM.item), 0.5f);
 
         // Grilled cheese recipe
         GameRegistry.addShapelessRecipe(new ItemStack(FoodCraftItems.GRILLED_CHEESE_ITEM.item), FoodCraftItems.TOAST_ITEM.item,

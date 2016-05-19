@@ -11,8 +11,6 @@ public class ItemToast extends ItemsFoodBase {
     public ItemToast() {
         super();
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabFood);
-        this.setAlwaysEdible();
 
         this.FoodBitterModifier = 1f;
         this.FoodSweetModifier = 1f;

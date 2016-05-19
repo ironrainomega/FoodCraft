@@ -11,6 +11,7 @@ import com.tamashenning.foodcraft.common.utils.models.PlayerStatsModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,9 @@ public abstract class ItemsFoodBase extends ItemFood implements IItemRenderer {
 
     public ItemsFoodBase() {
         super(0, 0f, false);
+        this.setCreativeTab(CreativeTabs.FOOD);
+        // TODO: Config option for testing...
+        this.setAlwaysEdible();
     }
 
     @Override

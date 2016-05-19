@@ -12,8 +12,6 @@ public class ItemGrilledCheese extends ItemsFoodBase {
     public ItemGrilledCheese() {
         super();
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabFood);
-        this.setAlwaysEdible();
 
         this.FoodBitterModifier = 1f;
         this.FoodSweetModifier = 1f;
