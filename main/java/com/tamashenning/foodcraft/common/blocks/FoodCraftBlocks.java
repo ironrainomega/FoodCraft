@@ -12,7 +12,8 @@ public enum FoodCraftBlocks {
 
     SALT_ORE(new BlockSaltOre()),
     SALT_BLOCK(new BlockSaltBlock()),
-    CHEESE_BLOCK(new BlockCheese());
+    CHEESE_BLOCK(new BlockCheese()),
+    OVEN_BLOCK(new BlockOven());
 
     public final Block block;
 
